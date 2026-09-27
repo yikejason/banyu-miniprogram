@@ -1,17 +1,14 @@
 import { View, Text } from "@tarojs/components";
-import { useEffect, useState } from "react";
-import { JournalSky } from "@/components/journal/JournalSky";
-import { listJournals } from "@/lib/journal/repository";
+import Taro from "@tarojs/taro";
 import type { JournalEntry } from "@/lib/journal/types";
 import "./JournalList.scss";
 
-export function JournalList() {
-  const [items, setItems] = useState<JournalEntry[] | null>(null);
+function formatDate(iso: string): string {
+  const d = new Date(iso);
+  return `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日`;
+}
 
-  useEffect(() => {
-    listJournals().then(setItems);
-  }, []);
-
+export function JournalList({ items }: { items: JournalEntry[] | null }) {
   if (!items) return <Text className="journal-loading">读取中…</Text>;
   if (items.length === 0) {
     return (
@@ -22,5 +19,20 @@ export function JournalList() {
     );
   }
 
-  return <JournalSky items={items} />;
+  return (
+    <View className="planet-glass journal-list">
+      {items.map((entry, index) => (
+        <View
+          key={entry.id}
+          className={`journal-row ${index === 0 ? "" : "journal-row-border"}`}
+          onClick={() =>
+            Taro.navigateTo({ url: `/pages/journal-detail/index?id=${entry.id}` })
+          }
+        >
+          <Text className="journal-row-title">{entry.title}</Text>
+          <Text className="journal-row-date">{formatDate(entry.createdAt)}</Text>
+        </View>
+      ))}
+    </View>
+  );
 }

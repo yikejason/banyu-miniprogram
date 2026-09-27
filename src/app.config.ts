@@ -6,6 +6,7 @@ export default {
     "pages/journal/index",
     "pages/share/index",
     "pages/journal-edit/index",
+    "pages/journal-detail/index",
     "pages/share-new/index",
     "pages/share-view/index",
     "pages/mood/index",

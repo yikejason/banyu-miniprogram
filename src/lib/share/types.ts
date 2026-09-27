@@ -1,14 +1,5 @@
-import type { PlanetVisual } from "@/lib/emotion/types";
-import type { Temperament } from "@/lib/temperament/types";
-
 export type ShareSnapshot = {
-  temperament: Temperament;
-  status: {
-    label: string;
-    intensity: 1 | 2 | 3 | 4 | 5;
-    visual: PlanetVisual;
-    note?: string;
-  };
+  note: string;
   createdAt: string;
 };
 

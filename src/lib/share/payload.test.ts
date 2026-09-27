@@ -1,4 +1,3 @@
-import { mapEmotion } from "@/lib/emotion/mapEmotion";
 import { buildShareUrl, encryptSnapshot, newShareSecrets, decryptSnapshot } from "./payload";
 import type { ShareSnapshot } from "./types";
 import { expect, test } from "vitest";
@@ -12,12 +11,7 @@ test("share url keeps key in hash", () => {
 test("snapshot roundtrip", async () => {
   const { contentKey } = await newShareSecrets();
   const snap: ShareSnapshot = {
-    temperament: { tone: "慢热", style: "少话", keywords: [] },
-    status: {
-      label: "未名",
-      intensity: 3,
-      visual: mapEmotion({ intensity: 3 }),
-    },
+    note: "今天有点累",
     createdAt: "2026-09-14T00:00:00.000Z",
   };
   const enc = await encryptSnapshot(snap, contentKey);
@@ -27,13 +21,7 @@ test("snapshot roundtrip", async () => {
 test("refuses to pack journal body", async () => {
   const { contentKey } = await newShareSecrets();
   const snap: ShareSnapshot = {
-    temperament: { tone: "a", style: "b", keywords: [] },
-    status: {
-      label: "未名",
-      intensity: 1,
-      visual: mapEmotion({ intensity: 1 }),
-      note: "不想被看见的话",
-    },
+    note: "不想被看见的话",
     createdAt: "2026-09-14T00:00:00.000Z",
   };
   await expect(

@@ -14,7 +14,7 @@ export default function ShareNewPage() {
   }));
 
   return (
-    <NightScene title="发起分享" subtitle="只分享性情与状态，不含日记正文。">
+    <NightScene title="发起分享" subtitle="只分享你写下的一句状态，不含日记正文。">
       <View className="share-new-page">
         <ShareComposer onCreated={setPath} />
       </View>

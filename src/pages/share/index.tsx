@@ -1,13 +1,13 @@
 import { View, Text } from "@tarojs/components";
-import Taro from "@tarojs/taro";
-import { useEffect, useState } from "react";
+import Taro, { useDidShow } from "@tarojs/taro";
+import { useState } from "react";
 import { NightScene } from "@/components/layout/NightScene";
 import { Card } from "@/components/m3/Card";
 import { FAB } from "@/components/m3/FAB";
 import { Button } from "@/components/m3/Button";
 import { deleteRecord, listRecords } from "@/lib/storage/vault";
+import { revokeShareCloud } from "@/lib/share/cloud";
 import type { ShareLocal } from "@/lib/share/types";
-import { apiDelete } from "@/lib/api";
 import "./index.scss";
 
 export default function SharePage() {
@@ -18,13 +18,14 @@ export default function SharePage() {
     setItems(list.sort((a, b) => b.createdAt.localeCompare(a.createdAt)));
   }
 
-  useEffect(() => {
+  // tab 页常驻内存，回到本页要重新读库，否则看不到刚创建的分享
+  useDidShow(() => {
     reload();
-  }, []);
+  });
 
   async function stop(item: ShareLocal) {
     try {
-      await apiDelete(`/api/shares/${item.id}`, { "x-revoke-token": item.revokeToken });
+      await revokeShareCloud(item.id, item.revokeToken);
     } catch {
       // 即使后端失败也本地移除
     }

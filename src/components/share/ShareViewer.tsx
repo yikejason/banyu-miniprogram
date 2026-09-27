@@ -2,9 +2,10 @@ import { View, Text } from "@tarojs/components";
 import { useEffect, useState } from "react";
 import { PlanetView } from "@/components/planet/PlanetView";
 import { Card } from "@/components/m3/Card";
+import { mapEmotion } from "@/lib/emotion/mapEmotion";
 import { decryptSnapshot, importContentKey } from "@/lib/share/payload";
 import type { ShareSnapshot } from "@/lib/share/types";
-import { apiGet } from "@/lib/api";
+import { getShareCloud } from "@/lib/share/cloud";
 import "./ShareViewer.scss";
 
 export function ShareViewer({ id, keyParam }: { id: string; keyParam: string }) {
@@ -18,7 +19,7 @@ export function ShareViewer({ id, keyParam }: { id: string; keyParam: string }) 
         return;
       }
       try {
-        const enc = await apiGet<{ iv: string; ciphertext: string }>(`/api/shares/${id}`);
+        const enc = await getShareCloud(id);
         const key = importContentKey(keyParam);
         setSnap(await decryptSnapshot(enc, key));
       } catch {
@@ -35,18 +36,10 @@ export function ShareViewer({ id, keyParam }: { id: string; keyParam: string }) 
 
   return (
     <View className="share-viewer">
-      <PlanetView visual={snap.status.visual} />
-      <Card className="share-viewer-card">
-        <Text className="share-viewer-label">性情</Text>
-        <Text className="share-viewer-value">{snap.temperament.tone}</Text>
-        {snap.temperament.style ? (
-          <Text className="share-viewer-sub">{snap.temperament.style}</Text>
-        ) : null}
-      </Card>
+      <PlanetView visual={mapEmotion({ intensity: 3, kind: "unspoken" })} />
       <Card className="share-viewer-card">
         <Text className="share-viewer-label">状态</Text>
-        <Text className="share-viewer-value">{snap.status.label}</Text>
-        {snap.status.note ? <Text className="share-viewer-sub">{snap.status.note}</Text> : null}
+        <Text className="share-viewer-value">{snap.note}</Text>
       </Card>
     </View>
   );

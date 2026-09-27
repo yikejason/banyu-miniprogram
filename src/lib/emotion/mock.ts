@@ -17,7 +17,7 @@ const RED: EmotionRecord["visual"] = {
   weather: "wind",
   glow: 0.75,
   companion: "spark",
-  label: "红色",
+  label: "裂焰",
 };
 
 const YELLOW: EmotionRecord["visual"] = {
@@ -26,7 +26,7 @@ const YELLOW: EmotionRecord["visual"] = {
   weather: "clear",
   glow: 0.5,
   companion: "spark",
-  label: "黄色",
+  label: "暖光",
 };
 
 const BLUE: EmotionRecord["visual"] = {
@@ -35,7 +35,7 @@ const BLUE: EmotionRecord["visual"] = {
   weather: "rain",
   glow: 0.25,
   companion: "dust",
-  label: "蓝色",
+  label: "潮汐",
 };
 
 export const MOCK_EMOTIONS: EmotionRecord[] = [

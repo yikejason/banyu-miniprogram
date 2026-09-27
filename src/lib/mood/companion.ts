@@ -11,8 +11,8 @@ export const MOOD_COMPANIONS: {
   kind: EmotionKind;
   src: string;
 }[] = [
-  { id: "warm", label: "", hint: "", kind: "joy", src: warmImg },
-  { id: "tender", label: "", hint: "", kind: "tender", src: tenderImg },
+  { id: "warm", label: "暖光", hint: "明亮温暖的陪伴", kind: "joy", src: warmImg },
+  { id: "tender", label: "薄暮", hint: "温柔安静的陪伴", kind: "tender", src: tenderImg },
 ];
 
 const KEY = "banyu-mood-companion";

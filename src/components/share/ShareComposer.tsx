@@ -1,10 +1,8 @@
 import { View, Text, Button } from "@tarojs/components";
 import Taro from "@tarojs/taro";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button as M3Button } from "@/components/m3/Button";
 import { TextField } from "@/components/m3/TextField";
-import { listEmotions } from "@/lib/emotion/repository";
-import type { EmotionRecord } from "@/lib/emotion/types";
 import {
   buildSharePath,
   encryptSnapshot,
@@ -12,9 +10,8 @@ import {
   newShareSecrets,
 } from "@/lib/share/payload";
 import type { ShareLocal } from "@/lib/share/types";
-import { getTemperament } from "@/lib/temperament/repository";
 import { putRecord } from "@/lib/storage/vault";
-import { apiPost } from "@/lib/api";
+import { createShareCloud } from "@/lib/share/cloud";
 import "./ShareComposer.scss";
 
 export function ShareComposer({
@@ -24,47 +21,32 @@ export function ShareComposer({
 }) {
   const [note, setNote] = useState("");
   const [error, setError] = useState("");
-  const [latest, setLatest] = useState<EmotionRecord | null>(null);
   const [path, setPath] = useState("");
-
-  useEffect(() => {
-    listEmotions().then((list) => setLatest(list[0] ?? null));
-  }, []);
 
   async function create() {
     setError("");
-    const temperament = await getTemperament();
-    if (!temperament?.tone) {
-      setError("请先在星球页写下至少一句气质。");
-      return;
-    }
-    if (!latest) {
-      setError("请先留下此刻的状态。");
+    const text = note.trim();
+    if (!text) {
+      setError("写一句简要状态吧。");
       return;
     }
     try {
       const { contentKey, contentKeyParam, revokeToken } = await newShareSecrets();
       const enc = await encryptSnapshot(
         {
-          temperament,
-          status: {
-            label: latest.visual.label,
-            intensity: latest.input.intensity,
-            visual: latest.visual,
-            note: note.trim() || undefined,
-          },
+          note: text,
           createdAt: new Date().toISOString(),
         },
         contentKey,
       );
       const revokeTokenHash = await hashToken(revokeToken);
       const expiresAt = new Date(Date.now() + 7 * 86400000).toISOString();
-      const { id } = (await apiPost("/api/shares", {
+      const { id } = await createShareCloud({
         iv: enc.iv,
         ciphertext: enc.ciphertext,
         expiresAt,
         revokeTokenHash,
-      })) as { id: string };
+      });
       const local: ShareLocal = {
         id,
         createdAt: new Date().toISOString(),
@@ -75,15 +57,15 @@ export function ShareComposer({
       const sharePath = buildSharePath(id, contentKeyParam);
       setPath(sharePath);
       onCreated(sharePath);
-    } catch {
-      setError("无法生成链接");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "无法生成链接");
     }
   }
 
   return (
     <View className="share-composer">
       <Text className="share-composer-hint">请把链接亲自发给想看见的人。</Text>
-      <TextField label="简要状态（可选，不要写日记）" value={note} onChange={setNote} />
+      <TextField label="简要状态（不要写日记）" value={note} onChange={setNote} />
       <M3Button variant="filled" onClick={create}>
         生成分享链接
       </M3Button>
