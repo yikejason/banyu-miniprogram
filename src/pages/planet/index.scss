@@ -1,0 +1,51 @@
+.planet-page {
+  display: block;
+}
+
+.planet-page-inner {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 750rpx;
+  margin: 0 auto;
+  padding: 48rpx 40rpx 160rpx;
+  box-sizing: border-box;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40rpx;
+}
+
+.planet-page-header {
+  text-align: center;
+}
+
+.planet-page-kicker {
+  display: block;
+  font-size: 22rpx;
+  letter-spacing: 16rpx;
+  color: #cac4d0;
+}
+
+.planet-page-title {
+  display: block;
+  margin-top: 8rpx;
+  font-size: 48rpx;
+  font-weight: 500;
+}
+
+.planet-page-sub {
+  display: block;
+  margin-top: 8rpx;
+  font-size: 28rpx;
+  color: #cac4d0;
+}
+
+.planet-page-link {
+  display: inline-block;
+  margin-top: 24rpx;
+  font-size: 28rpx;
+  color: #cbbdff;
+}

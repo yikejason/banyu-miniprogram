@@ -1,0 +1,25 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.field-label {
+  font-size: 28rpx;
+  color: #cac4d0;
+}
+
+.field-input {
+  width: 100%;
+  border: 1px solid #948f99;
+  border-radius: 12rpx;
+  background: transparent;
+  padding: 24rpx;
+  color: #e6e1e6;
+  font-size: 28rpx;
+  box-sizing: border-box;
+}
+
+.field-area {
+  min-height: 240rpx;
+}

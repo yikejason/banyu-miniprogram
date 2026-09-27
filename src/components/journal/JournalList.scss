@@ -1,0 +1,18 @@
+.journal-loading {
+  color: #cac4d0;
+  text-align: center;
+  display: block;
+}
+
+.journal-empty {
+  padding: 48rpx;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.journal-empty-sub {
+  font-size: 28rpx;
+  color: #cac4d0;
+}

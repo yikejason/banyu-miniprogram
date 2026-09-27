@@ -1,0 +1,17 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  height: 64rpx;
+  padding: 0 32rpx;
+  border-radius: 16rpx;
+  font-size: 28rpx;
+  color: #cac4d0;
+  border: 1px solid #948f99;
+  background: transparent;
+}
+
+.chip-on {
+  background: #473571;
+  color: #e6ddff;
+  border-color: #473571;
+}

@@ -1,0 +1,45 @@
+.share-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.share-empty {
+  padding: 48rpx;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.share-empty-sub {
+  font-size: 28rpx;
+  color: #cac4d0;
+}
+
+.share-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24rpx;
+}
+
+.share-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8rpx;
+}
+
+.share-item-time {
+  font-size: 28rpx;
+}
+
+.share-item-expire {
+  font-size: 24rpx;
+  color: #cac4d0;
+}
+
+.share-item-stop {
+  margin-top: 16rpx;
+  align-self: center;
+}

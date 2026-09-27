@@ -1,0 +1,50 @@
+{
+  "name": "banyu-miniprogram",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build:weapp": "taro build --type weapp",
+    "dev:weapp": "taro build --type weapp --watch",
+    "dev": "taro build --type weapp --watch",
+    "build": "taro build --type weapp",
+    "test": "vitest run"
+  },
+  "browserslist": [
+    "last 3 versions",
+    "Android >= 4.1",
+    "iOS >= 8"
+  ],
+  "dependencies": {
+    "@babel/runtime": "^7.27.0",
+    "@noble/ciphers": "^1.0.0",
+    "@noble/hashes": "^1.6.0",
+    "@tarojs/components": "4.2.1",
+    "@tarojs/helper": "4.2.1",
+    "@tarojs/react": "^4.2.1",
+    "@tarojs/runtime": "4.2.1",
+    "@tarojs/shared": "4.2.1",
+    "@tarojs/taro": "4.2.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.27.0",
+    "@babel/preset-env": "^7.24.4",
+    "@babel/preset-react": "^7.24.1",
+    "@babel/preset-typescript": "^7.24.1",
+    "@tarojs/cli": "4.2.1",
+    "@tarojs/plugin-framework-react": "4.2.1",
+    "@tarojs/plugin-platform-weapp": "4.2.1",
+    "@tarojs/webpack5-runner": "4.2.1",
+    "@types/react": "^18.3.0",
+    "babel-preset-taro": "4.2.1",
+    "react-refresh": "^0.14.0",
+    "sass": "^1.80.0",
+    "typescript": "^5.6.0",
+    "vitest": "^3.2.7",
+    "webpack": "5.91.0"
+  },
+  "overrides": {
+    "webpack": "5.91.0"
+  }
+}

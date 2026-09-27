@@ -1,0 +1,84 @@
+.mood {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 48rpx;
+}
+
+.mood-inner {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 800rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mood-title {
+  text-align: center;
+  font-size: 56rpx;
+  font-weight: 500;
+  letter-spacing: 4rpx;
+}
+
+.mood-hint {
+  margin-top: 32rpx;
+  display: inline-flex;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 999rpx;
+  padding: 12rpx 32rpx;
+  font-size: 28rpx;
+  color: #cac4d0;
+}
+
+.mood-card {
+  margin-top: 56rpx;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 56rpx 40rpx 64rpx;
+  text-align: center;
+}
+
+.mood-figures {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 24rpx;
+}
+
+.mood-figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 46%;
+  border-radius: 48rpx;
+  padding: 32rpx 16rpx 24rpx;
+}
+
+.mood-figure-img {
+  height: 320rpx;
+  width: auto;
+}
+
+.mood-figure-label {
+  margin-top: 16rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+}
+
+.mood-figure-hint {
+  font-size: 24rpx;
+  color: #cac4d0;
+}
+
+.mood-note {
+  display: block;
+  margin-top: 48rpx;
+  font-size: 28rpx;
+  line-height: 1.6;
+  color: #cac4d0;
+}

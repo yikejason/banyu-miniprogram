@@ -1,0 +1,24 @@
+.journal-sky {
+  position: relative;
+  width: 100%;
+  min-height: 560rpx;
+}
+
+.journal-star-wrap {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8rpx;
+}
+
+.journal-star-title {
+  max-width: 192rpx;
+  font-size: 20rpx;
+  color: #cac4d0;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

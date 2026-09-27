@@ -1,0 +1,43 @@
+.share-composer {
+  display: flex;
+  flex-direction: column;
+  gap: 32rpx;
+}
+
+.share-composer-hint {
+  font-size: 28rpx;
+  color: #cac4d0;
+}
+
+.share-composer-error {
+  font-size: 28rpx;
+  color: #ffb4ab;
+}
+
+.share-composer-result {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.share-composer-path {
+  font-size: 26rpx;
+  word-break: break-all;
+  color: #e6e1e6;
+}
+
+.share-composer-forward {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 80rpx;
+  border-radius: 20rpx;
+  background: #473571;
+  color: #e6ddff;
+  font-size: 28rpx;
+  padding: 0 48rpx;
+}
+
+.share-composer-forward::after {
+  border: none;
+}

@@ -1,0 +1,42 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 80rpx;
+  padding: 0 48rpx;
+  border-radius: 20rpx;
+  font-size: 28rpx;
+  font-weight: 500;
+  line-height: 1;
+  margin: 0;
+}
+
+// 去掉小程序按钮默认边框
+.btn::after {
+  border: none;
+}
+
+.btn[disabled] {
+  opacity: 0.4;
+}
+
+.btn-filled {
+  background: #cbbdff;
+  color: #32275a;
+}
+
+.btn-outlined {
+  background: transparent;
+  color: #cbbdff;
+  border: 1px solid #948f99;
+}
+
+.btn-text {
+  background: transparent;
+  color: #cbbdff;
+}
+
+.btn-tonal {
+  background: #473571;
+  color: #e6ddff;
+}

@@ -1,0 +1,39 @@
+.night-scene {
+  display: block;
+}
+
+.night-inner {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 750rpx;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 64rpx 40rpx 80rpx;
+}
+
+.night-header {
+  margin-bottom: 48rpx;
+  text-align: center;
+}
+
+.night-kicker {
+  display: block;
+  font-size: 22rpx;
+  letter-spacing: 16rpx;
+  color: #cac4d0;
+}
+
+.night-title {
+  display: block;
+  margin-top: 8rpx;
+  font-size: 48rpx;
+  font-weight: 500;
+}
+
+.night-subtitle {
+  display: block;
+  margin-top: 8rpx;
+  font-size: 28rpx;
+  color: #cac4d0;
+}

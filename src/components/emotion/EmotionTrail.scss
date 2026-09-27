@@ -1,0 +1,132 @@
+.trail {
+  display: flex;
+  flex-direction: column;
+  gap: 32rpx;
+}
+
+.trail-list {
+  padding: 24rpx 32rpx;
+}
+
+.trail-empty {
+  color: #cac4d0;
+  text-align: center;
+  padding: 64rpx 0;
+  display: block;
+}
+
+.trail-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28rpx 112rpx; /* 左右对称留出色点/复选框的位置 */
+}
+
+.trail-row-border {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.figure-mark {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 0 14px currentColor;
+}
+
+.figure-mark-icon {
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.85;
+}
+
+.trail-line {
+  width: 100%;
+  text-align: center;
+  font-size: 30rpx;
+  line-height: 1.6;
+  color: #e6e1e6;
+}
+
+.trail-check {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.trail-check.on {
+  border-color: #cbbdff;
+  background: #cbbdff;
+}
+
+.trail-check-dot {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  background: #32275a;
+}
+
+.trail-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16rpx;
+  margin-top: 16rpx;
+  padding: 16rpx 24rpx;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999rpx;
+  font-size: 22rpx;
+  color: #cac4d0;
+}
+
+.trail-note-dot {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.trail-actions {
+  display: flex;
+  gap: 24rpx;
+}
+
+.trail-btn {
+  flex: 1;
+  height: 96rpx;
+  border-radius: 999rpx;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  color: #e6e1e6;
+}
+
+.trail-btn-primary {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.trail-btn.disabled {
+  opacity: 0.4;
+}

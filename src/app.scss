@@ -1,0 +1,182 @@
+// 伴语星球 全局样式 —— 暗色星球主题
+// 小程序不支持 backdrop-filter / color-mix / mask-image / transform-style: preserve-3d，
+// 这里用 rgba 渐变 + 边框模拟玻璃质感，动画用 transform/opacity。
+
+page {
+  background: #0d0a16;
+  color: #e6e1e6;
+  font-family: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif;
+}
+
+:root,
+.planet-shell,
+.planet-scene {
+  --md-sys-color-primary: #cbbdff;
+  --md-sys-color-on-primary: #32275a;
+  --md-sys-color-primary-container: #473571;
+  --md-sys-color-on-primary-container: #e6ddff;
+  --md-sys-color-secondary: #cbc2db;
+  --md-sys-color-on-secondary: #332d41;
+  --md-sys-color-tertiary: #f0b7c4;
+  --md-sys-color-on-tertiary: #4a2530;
+  --md-sys-color-error: #ffb4ab;
+  --md-sys-color-on-error: #690005;
+  --md-sys-color-surface: #0d0a16;
+  --md-sys-color-on-surface: #e6e1e6;
+  --md-sys-color-surface-container: #1c1826;
+  --md-sys-color-surface-container-high: #2a2436;
+  --md-sys-color-surface-variant: #49454e;
+  --md-sys-color-on-surface-variant: #cac4d0;
+  --md-sys-color-outline: #948f99;
+  --md-sys-color-outline-variant: #3a3544;
+}
+
+.planet-scene {
+  position: relative;
+  background:
+    radial-gradient(ellipse 80% 46% at 50% 12%, rgba(203, 189, 255, 0.26), transparent 68%),
+    radial-gradient(ellipse 50% 36% at 88% 88%, rgba(240, 183, 196, 0.16), transparent 72%),
+    #0d0a16;
+  color: #e6e1e6;
+  min-height: 100vh;
+}
+
+.planet-glass {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 24rpx;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+}
+
+// 星空
+.planet-star {
+  position: absolute;
+  border-radius: 50%;
+  background: #fff;
+  animation: planet-twinkle 3.8s ease-in-out infinite;
+}
+
+@keyframes planet-twinkle {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.9; }
+}
+
+// 星球光晕
+.planet-aura {
+  position: absolute;
+  border-radius: 50%;
+  animation: planet-breathe 6s ease-in-out infinite;
+}
+
+@keyframes planet-breathe {
+  0%, 100% { transform: scale(1); opacity: 0.55; }
+  50% { transform: scale(1.08); opacity: 0.85; }
+}
+
+// 星球环
+.planet-ring {
+  animation: planet-spin 70s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes planet-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+// 日记星点
+.journal-entry-star {
+  display: block;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow:
+    0 0 8px 2px rgba(255, 255, 255, 0.7),
+    0 0 18px 6px rgba(203, 189, 255, 0.35);
+  animation: planet-twinkle 3.8s ease-in-out infinite;
+}
+
+// 封面光球（小程序无 3D/conic/mask，简化为旋转环 + 辉光）
+.cover-orb {
+  position: relative;
+  width: 115rpx;
+  height: 115rpx;
+}
+
+.cover-orb-halo {
+  position: absolute;
+  inset: -22%;
+  border: 2rpx solid currentColor;
+  border-radius: 50%;
+  box-shadow: 0 0 10px currentColor, 0 0 22px rgba(255, 255, 255, 0.3);
+  animation: cover-halo-spin 8s linear infinite;
+}
+
+.cover-orb-halo-rev {
+  animation-direction: reverse;
+  animation-duration: 11s;
+}
+
+.cover-orb-rim {
+  position: absolute;
+  inset: 6%;
+  border-radius: 50%;
+  border: 2rpx solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 6px currentColor;
+  animation: cover-halo-spin 5s linear infinite;
+}
+
+@keyframes cover-halo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+// 封面主按钮（小程序无复杂发光，用多层 box-shadow 模拟）
+.cover-connect {
+  display: inline-flex;
+  min-width: 440rpx;
+  height: 96rpx;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20rpx;
+  border: 1px solid rgba(239, 231, 255, 0.55);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(25, 19, 38, 0.55));
+  padding: 0 48rpx;
+  color: #fff;
+  font-size: 32rpx;
+  font-weight: 500;
+  letter-spacing: 8rpx;
+  text-shadow: 0 0 8px #fff, 0 0 16px #cbbdff;
+  box-shadow:
+    0 0 12px rgba(203, 189, 255, 0.6),
+    0 0 34px rgba(203, 189, 255, 0.38);
+  animation: cover-connect-glow 2.8s ease-in-out infinite;
+}
+
+.cover-connect[disabled] {
+  animation: none;
+  opacity: 0.6;
+}
+
+@keyframes cover-connect-glow {
+  0%, 100% {
+    box-shadow:
+      0 0 10px rgba(203, 189, 255, 0.45),
+      0 0 24px rgba(203, 189, 255, 0.24);
+  }
+  50% {
+    box-shadow:
+      0 0 16px rgba(203, 189, 255, 0.8),
+      0 0 42px rgba(203, 189, 255, 0.42);
+  }
+}
+
+// 心情小人选择
+.mood-figure {
+  border: 1px solid transparent;
+}
+
+.mood-figure-on {
+  border-color: rgba(203, 189, 255, 0.6);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 24px rgba(203, 189, 255, 0.32);
+}

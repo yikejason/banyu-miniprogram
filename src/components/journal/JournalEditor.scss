@@ -1,0 +1,28 @@
+.editor {
+  display: flex;
+  flex-direction: column;
+  gap: 32rpx;
+}
+
+.editor-field {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.editor-field-label {
+  font-size: 28rpx;
+  color: #cac4d0;
+}
+
+.editor-picker {
+  height: 96rpx;
+  border: 1px solid #948f99;
+  border-radius: 12rpx;
+  background: #1c1826;
+  padding: 0 24rpx;
+  display: flex;
+  align-items: center;
+  color: #e6e1e6;
+  font-size: 28rpx;
+}

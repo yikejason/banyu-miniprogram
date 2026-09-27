@@ -1,0 +1,36 @@
+.share-viewer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48rpx;
+}
+
+.share-viewer-card {
+  width: 100%;
+}
+
+.share-viewer-empty {
+  color: #cac4d0;
+  text-align: center;
+  display: block;
+}
+
+.share-viewer-label {
+  display: block;
+  font-size: 26rpx;
+  color: #cac4d0;
+}
+
+.share-viewer-value {
+  display: block;
+  margin-top: 8rpx;
+  font-size: 32rpx;
+  color: #e6e1e6;
+}
+
+.share-viewer-sub {
+  display: block;
+  margin-top: 16rpx;
+  font-size: 28rpx;
+  color: #cac4d0;
+}

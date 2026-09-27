@@ -1,0 +1,38 @@
+.dialog-mask {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 32rpx;
+}
+
+.dialog {
+  width: 100%;
+  max-width: 600rpx;
+  box-sizing: border-box;
+  border-radius: 24rpx;
+  background: #2a2436;
+  color: #e6e1e6;
+  padding: 48rpx;
+}
+
+.dialog-title {
+  display: block;
+  font-size: 40rpx;
+  font-weight: 500;
+  margin-bottom: 32rpx;
+}
+
+.dialog-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 32rpx;
+}
+
+.dialog-close {
+  color: #cbbdff;
+  font-size: 28rpx;
+}
