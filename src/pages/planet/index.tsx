@@ -6,6 +6,7 @@ import { listEmotions } from "@/lib/emotion/repository";
 import { mapEmotion } from "@/lib/emotion/mapEmotion";
 import type { EmotionRecord } from "@/lib/emotion/types";
 import { companionById, getMoodCompanion, type MoodCompanionId } from "@/lib/mood/companion";
+import { COVER_FLAG } from "@/lib/coverGate";
 import "./index.scss";
 
 export default function PlanetPage() {
@@ -14,7 +15,7 @@ export default function PlanetPage() {
   const [companionId, setCompanionId] = useState<MoodCompanionId | null>(null);
 
   useLoad(() => {
-    if (Taro.getStorageSync("banyu-cover-entered") !== "1") {
+    if (Taro.getStorageSync(COVER_FLAG) !== "1") {
       Taro.reLaunch({ url: "/pages/cover/index" });
     }
   });

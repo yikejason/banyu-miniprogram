@@ -132,6 +132,7 @@ page {
 
 // 封面主按钮（小程序无复杂发光，用多层 box-shadow 模拟）
 .cover-connect {
+  margin-top: 48rpx;
   display: inline-flex;
   min-width: 440rpx;
   height: 96rpx;

@@ -4,15 +4,15 @@ const KIND_VISUAL: Record<
   EmotionKind,
   Pick<PlanetVisual, "hue" | "weather" | "companion" | "label">
 > = {
-  joy: { hue: 48, weather: "clear", companion: "spark", label: "暖光" },
-  calm: { hue: 200, weather: "mist", companion: "moon", label: "静海" },
-  sad: { hue: 230, weather: "rain", companion: "dust", label: "潮汐" },
-  anxious: { hue: 30, weather: "wind", companion: "ring", label: "风环" },
-  angry: { hue: 12, weather: "wind", companion: "spark", label: "裂焰" },
-  tender: { hue: 320, weather: "aurora", companion: "moon", label: "薄暮" },
-  empty: { hue: 260, weather: "eclipse", companion: "none", label: "虚空" },
-  mixed: { hue: 180, weather: "mist", companion: "ring", label: "层云" },
-  unspoken: { hue: 270, weather: "mist", companion: "dust", label: "未名" },
+  joy: { hue: 48, weather: "clear", companion: "spark", label: "" },
+  calm: { hue: 200, weather: "mist", companion: "moon", label: "" },
+  sad: { hue: 230, weather: "rain", companion: "dust", label: "" },
+  anxious: { hue: 30, weather: "wind", companion: "ring", label: "" },
+  angry: { hue: 12, weather: "wind", companion: "spark", label: "" },
+  tender: { hue: 320, weather: "aurora", companion: "moon", label: "" },
+  empty: { hue: 260, weather: "eclipse", companion: "none", label: "" },
+  mixed: { hue: 180, weather: "mist", companion: "ring", label: "" },
+  unspoken: { hue: 270, weather: "mist", companion: "dust", label: "" },
 };
 
 const RULES: [RegExp, EmotionKind][] = [

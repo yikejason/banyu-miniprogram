@@ -60,8 +60,9 @@
 }
 
 .mood-figure-img {
+  /* 微信 image 是 background-image 容器，width:auto 会塌缩成 0 宽，必须显式给尺寸 */
+  width: 320rpx;
   height: 320rpx;
-  width: auto;
 }
 
 .mood-figure-label {

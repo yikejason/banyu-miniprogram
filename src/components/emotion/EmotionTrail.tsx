@@ -3,6 +3,7 @@ import Taro from "@tarojs/taro";
 import { useEffect, useState } from "react";
 import { deleteEmotions, listEmotions } from "@/lib/emotion/repository";
 import { formatEmotionLine } from "@/lib/emotion/labels";
+import { MOCK_EMOTIONS } from "@/lib/emotion/mock";
 import type { EmotionRecord } from "@/lib/emotion/types";
 import "./EmotionTrail.scss";
 
@@ -24,7 +25,9 @@ export function EmotionTrail() {
   const [busy, setBusy] = useState(false);
 
   async function reload() {
-    setItems(await listEmotions());
+    const list = await listEmotions();
+    // 本机还没有真实记录时，用演示数据撑起列表
+    setItems(list.length > 0 ? list : MOCK_EMOTIONS);
   }
 
   useEffect(() => {

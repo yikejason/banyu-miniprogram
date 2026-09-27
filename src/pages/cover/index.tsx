@@ -2,15 +2,14 @@ import { useState } from "react";
 import Taro, { useLoad } from "@tarojs/taro";
 import { CoverScreen } from "@/components/cover/CoverScreen";
 import { ensureDeviceVault } from "@/lib/storage/vault";
-
-const COVER_FLAG = "banyu-cover-entered";
+import { COVER_ALWAYS, COVER_FLAG } from "@/lib/coverGate";
 
 export default function CoverPage() {
   const [entered, setEntered] = useState(false);
   const [busy, setBusy] = useState(false);
 
   useLoad(() => {
-    if (Taro.getStorageSync(COVER_FLAG) === "1") {
+    if (!COVER_ALWAYS && Taro.getStorageSync(COVER_FLAG) === "1") {
       Taro.switchTab({ url: "/pages/planet/index" });
       return;
     }

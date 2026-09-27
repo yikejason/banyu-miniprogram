@@ -1,8 +1,7 @@
 import Taro from "@tarojs/taro";
 import { MoodSelectScreen } from "@/components/mood/MoodSelectScreen";
 import { setMoodCompanion } from "@/lib/mood/companion";
-
-const COVER_FLAG = "banyu-cover-entered";
+import { COVER_FLAG } from "@/lib/coverGate";
 
 export default function MoodPage() {
   function onConfirm(id: Parameters<typeof setMoodCompanion>[0]) {
